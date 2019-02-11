@@ -1,5 +1,42 @@
 <% include ../partials/header %>
 
-<h1>Min side</h1>
+<div class="userInfo">
+    <h3>Logget inn som: <%= currentUser.username %></h3>
+    <p>Navn: <%= currentUser.name %></p>
+    <p>Ble medlem: <%= moment(currentUser.createdAt).fromNow() %></p>
+</div>
+
+<div class="minSideContainer">
+
+    <div class="myPostsContainer">
+        <h1>My posts</h1>
+        
+        <% posts.forEach(function(posts){ %>
+        <% if( posts.author.id.equals(currentUser._id)) { %>
+        <div class="posts">
+             <a href="/posts/<%= posts._id %>"> <%= posts.title %> </a> 
+             <hr>
+             <p><%= posts.description %></p>
+             <p> <em><%= moment(posts.createdAt).fromNow() %></em> </p>
+        </div>
+        <% } %>
+        <% }) %>
+    </div>
+
+    <div class="myCommentsContainer">
+        <h1>My comments</h1>
+        <% comments.forEach(function(comments){ %>
+            <% if(comments.author.id.equals(currentUser._id)){ %>
+                <div class="comments">
+                    <p><%= comments.text %></p>
+                    <p>in post: <%= comments.post %></p>
+                    <p> <%= moment(comments.createdAt).fromNow() %> </p>
+                    <hr>
+                </div>
+            <% } %>
+        <% }) %>
+    </div>
+
+</div>
 
 <% include ../partials/footer %>

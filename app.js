@@ -11,7 +11,8 @@ var express         = require("express"),
     var authRoute       = require("./routes/index"),
         postRoute       = require("./routes/posts"),
         chatRoute       = require("./routes/chat"),
-        commentRoute    = require("./routes/comments");
+        commentRoute    = require("./routes/comments"),
+        adminRoute      = require("./routes/admin");
 
 mongoose.connect("mongodb://localhost:27017/forum", {useNewUrlParser: true});
 
@@ -25,6 +26,8 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
+
+app.locals.moment = require("moment");
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -41,6 +44,7 @@ app.use(authRoute);
 app.use("/posts", postRoute);
 app.use("/chat", chatRoute);
 app.use("/posts/:id/comments", commentRoute);
+app.use(adminRoute);
 
 app.listen(3000, function(){
     console.log("Forum app startet");

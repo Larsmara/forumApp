@@ -5,9 +5,10 @@
     <!-- LIST ALL POSTS -->
     <ul>
         <% posts.forEach(function(posts){ %>
-            <li> <a href="/posts/<%= posts._id %>"><%= posts.title %></a> - <%= posts.author.username %> - <%= posts.createdAt %></li>
+            <li> <a href="/posts/<%= posts._id %>"><%= posts.title %></a> - <%= posts.author.username %> - <%= moment(posts.createdAt).fromNow() %></li>
         <% }) %>
     </ul>
+    <p>Number of posts: <%= posts.length %></p>
 </div>
 
 <% include ../partials/footer %>

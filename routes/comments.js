@@ -47,6 +47,42 @@ router.post("/", middleware.isLoggedIn, function(req,res){
     });
 });
 
+// EDIT COMMENT
+router.get("/:comment_id/edit", function(req,res){
+    Comment.findById(req.params.comment_id, function(err, foundComment){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("comments/edit", {post_id: req.params.id, comment: foundComment, title:'Edit comment'});
+        }
+    });
+});
+
+// UPDATE COMMENT
+router.put("/:comment_id", function(req,res){
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
+        if(err){
+            console.log(err);
+            res.redirect("edit");
+        } else {
+            res.redirect("/posts/" + req.params.id);
+        }
+    });
+});
+
+// DELETE COMMENT
+router.delete("/:comment_id", function(req,res){
+    Comment.findByIdAndRemove(req.params.comment_id, function(err){
+        if(err){
+            console.log(err);
+            res.redirect("back");
+        } else {
+            console.log("Kommentar fjernet!");
+            res.redirect("back");
+        }
+    });
+});
+
 
 module.exports = router;
 

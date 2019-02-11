@@ -1,6 +1,8 @@
 var express     = require("express"),
     router      = express.Router(),
     passport    = require("passport"),
+    Post        = require("../models/posts"),
+    Comment    = require("../models/comment"),
     User        = require("../models/user");
 
 
@@ -18,7 +20,19 @@ router.get("/about", function(req,res){
 
 // MY SITE ROUTE
 router.get("/users", function(req,res){
-    res.render("users/index", {title:'My site'});
+    Post.find({}, function(err, myPosts){
+        if(err){
+            console.log(err);
+        } else {
+            Comment.find({}, function(err, myComments){
+                if(err){
+                    console.log(err);
+                } else {
+                    res.render("users/index", {posts: myPosts, comments: myComments,currentUser: req.user, title:'My site'});
+                }
+            })
+        }
+    });
 });
 
 // SHOW LOGIN FORM

@@ -3,21 +3,23 @@
 [X]  -   Koble til mongodb
 [X]  -   Lag modeller
 [X]  -   Legge til bruker håndtering / innlogging
-[X]  -   Sette opp mulighet for å lage nye posts
+[X]  -   CRUD
+    [X] - Posts
+    [X] - Kommentarer
 [X]  -   Koble posts opp mot bruker
-[]  -   Mulighet for å kommentere på posts
-[]  -   Vise en liste over alle brukere i chat
+[X]  -   Knytte kommentarer opp mot posts
+[X]  -   Knytte kommentarer opp mot bruker
+[X]  -   Vise oversikt på Min side
+    [X] - Over bruker sin posts
+    [X] - Over bruker sine kommentarer
+    [] - Antall posts
+[]  -   Style sidene 
+[]  -   Admin Login
+[]  -   Verifisering av admin
+[]  -   Gi admin tilgang til å slette / redigere posts/kommentarer
+[]  -   Lage et chat vindu
+[]  -   Vise oversikt over brukere i chatten
 []  -   
-[]
-[]
-[]
-[]
-[]
-[]
-[]
-[]
-[]
-[]
 []
 []
 []

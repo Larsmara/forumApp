@@ -1,0 +1,13 @@
+<% include ../partials/header %>
+
+    <h1>Edit comment</h1>
+
+    <form action="/posts/<%= post_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+        <input type="text" name="comment[text]" value="<%= comment.text %>">
+        <input type="submit" value="Submit!">
+    </form>
+
+    <a href="/posts">Back</a>
+
+
+<% include ../partials/footer %>

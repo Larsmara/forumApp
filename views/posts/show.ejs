@@ -4,7 +4,7 @@
     <h2><%= post.title %></h2>
     <p><%= post.image %></p>
     <p><%= post.description %></p>
-    <p><em>Submitted by: <%= post.author.username %></em></p>
+    <p><em>Submitted by: <%= post.author.username %> - <%= post.author.name %> - <%= moment(post.createdAt).fromNow() %></em></p>
     <% if(currentUser && post.author.id.equals(currentUser._id)) { %>
         <a href="/posts/<%= post._id %>/edit">Edit</a>
         <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
@@ -17,12 +17,16 @@
         <a href="/posts/<%= post.id %>/comments/new">Add comment</a>
         <hr>
         <% post.comments.forEach(function(comment){ %>
-            <strong> <%= comment.author.name %> </strong>
+            <strong> <%= comment.author.name %> - <%= moment(comment.createdAt).fromNow() %></strong>
             <p> <%= comment.text %> </p>
             <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
                 <p>
-                    <a href="">Edit</a> 
-                    <a href="">Delete</a> 
+                    <a href="/posts/<%= post._id%>/comments/<%=comment._id%>/edit">Edit</a> 
+                    <span>
+                        <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </span>
                 </p>
             <% } %>
         <% }) %>
