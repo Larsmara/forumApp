@@ -4,18 +4,21 @@
     height: auto;
     padding: 5px;
 }
+
+
 .bottom {
     bottom:0;
     position:fixed;
     z-index:150;
-    _position:absolute;
-    _top:expression(eval(document.documentElement.scrollTop+
-        (document.documentElement.clientHeight-this.offsetHeight)));
     height: 45px;
-    border: 2px solid pink;
-    width: 90%;
-    margin-bottom: 4px;
-    display: inline-block;
+}
+
+.left{
+    float: none;
+    width: auto;
+    overflow: hidden;
+    height: 700px;
+    border: 3px solid purple;
 }
 
 .right {
@@ -26,14 +29,8 @@
     border: 1px solid black;
 }
 
-.left {
-    float: none; /* not needed, just for clarification */
-    background: #e8f6fe;
-    /* the next props are meant to keep this block independent from the other floated one */
-    width: auto;
-    overflow: hidden;
-    height: 700px;
-    margin-right: 4px;
-    padding-right: 4px;
-    border: 3px solid purple;
-}​​
+@media only screen and (max-width: 768px) {
+    .right{
+        display: none;
+    }
+}
