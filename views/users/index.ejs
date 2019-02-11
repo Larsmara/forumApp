@@ -1,9 +1,9 @@
 <% include ../partials/header %>
 
-<div class="userInfo">
+<div class="aside">
     <h3>Logget inn som: <%= currentUser.username %></h3>
     <p>Navn: <%= currentUser.name %></p>
-    <p>Ble medlem: <%= moment(currentUser.createdAt).fromNow() %></p>
+    <p>Ble medlem for: <%= moment(currentUser.createdAt).fromNow() %></p>
 </div>
 
 <div class="minSideContainer">
@@ -28,10 +28,10 @@
         <% comments.forEach(function(comments){ %>
             <% if(comments.author.id.equals(currentUser._id)){ %>
                 <div class="comments">
-                    <p><%= comments.text %></p>
-                    <p>in post: <%= comments.post %></p>
-                    <p> <%= moment(comments.createdAt).fromNow() %> </p>
+                    <p id="commentText"><%= comments.text %></p>
                     <hr>
+                    <!-- <p>in post: <%= comments.post %></p> -->
+                    <p><em> <%= moment(comments.createdAt).fromNow() %> </em></p>
                 </div>
             <% } %>
         <% }) %>

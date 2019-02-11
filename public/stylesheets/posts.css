@@ -1,0 +1,13 @@
+.postsContainer{
+    margin-top: 60px;
+    text-align: center;
+}
+
+.postsContainer > ul {
+    list-style: none;
+}
+
+.postContainer {
+    margin-top: 60px;
+    text-align: center;
+}
