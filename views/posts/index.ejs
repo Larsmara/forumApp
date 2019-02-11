@@ -1,5 +1,13 @@
 <% include ../partials/header %>
 
-<h1>Posts</h1>
+<div class="postsContainer">
+    <h1>Posts - <span><a href="/posts/new">Add new Post</a></span></h1>
+    <!-- LIST ALL POSTS -->
+    <ul>
+        <% posts.forEach(function(posts){ %>
+            <li> <a href="/posts/<%= posts._id %>"><%= posts.title %></a> - <%= posts.author.username %> - <%= posts.createdAt %></li>
+        <% }) %>
+    </ul>
+</div>
 
 <% include ../partials/footer %>

@@ -1,0 +1,13 @@
+<% include ../partials/header %>
+
+    <h1>Add new comment to: <%= post.title %></h1>
+
+    <form action="/posts/<%= post._id %>/comments" method="POST">
+        <input type="text" name="comment[text]" placeholder="Comment">
+        <input type="submit" value="Submit!">
+    </form>
+
+    <a href="/posts">Back</a>
+
+
+<% include ../partials/footer %>

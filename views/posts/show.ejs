@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<div class="postContainer">
+    <h2><%= post.title %></h2>
+    <p><%= post.image %></p>
+    <p><%= post.description %></p>
+    <p><em>Submitted by: <%= post.author.username %></em></p>
+    <% if(currentUser && post.author.id.equals(currentUser._id)) { %>
+        <a href="/posts/<%= post._id %>/edit">Edit</a>
+        <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete">
+        </form>
+    <% } %>
+    <hr>
+    <h2>Comments</h2>
+    <div class="commentContainer">
+        <a href="/posts/<%= post.id %>/comments/new">Add comment</a>
+        <hr>
+        <% post.comments.forEach(function(comment){ %>
+            <strong> <%= comment.author.name %> </strong>
+            <p> <%= comment.text %> </p>
+            <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+                <p>
+                    <a href="">Edit</a> 
+                    <a href="">Delete</a> 
+                </p>
+            <% } %>
+        <% }) %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

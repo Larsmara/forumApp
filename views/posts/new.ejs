@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+
+    <div class="postContainer">
+        <h1>New post</h1>
+        
+        <form action="/posts" method="POST">
+            <p><input type="text" name="title" placeholder="Title" required></p>
+            <p><input type="text" name="image" placeholder="Image URL"></p>
+            <p><input type="text" name="description" placeholder="Description" required></p>
+            <p><input type="submit" value="Submit"></p>
+        </form>
+
+        <a href="/posts">Back</a>
+
+    </div>
+
+<% include ../partials/footer %>
