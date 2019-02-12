@@ -1,49 +1,16 @@
-.row-chat{
-    height: 85vh;
-    overflow-y: scroll;
+.contaier-chat{
+    display: flex;
 }
 
-.chatInput{
-    width: 100%;
-    margin: 0;
-    margin-top: 2%;
+.container-users{
+    display: flex;
 }
 
-.chatSend{
-    width: 100%;
-    margin: 0;
-    margin-top: 6%;
+.container-msg{
+    display: flex;
 }
 
-.chatDiv{
-    overflow-y: scroll;
+.container-chat div, .container-users div, .container-msg div {
+    border: 1px #ccc solid;
+    padding: 10px;
 }
-
-.card-body{
-    padding: 0;
-    padding-left: 5px;
-}
-
-.card-body > .card-text {
-    margin: 0;
-    padding: 0;
-}
-
-.card-img{
-    padding-top: 6px;
-    padding-right: 2px;
-}
-
-.card {
-    height: 60px;
-    background: white;
-}
-
-.card:nth-child(even) {
-    background: white;
-}
-
-.col-9{
-    background: lightblue;
-}
-

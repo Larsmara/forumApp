@@ -17,6 +17,7 @@ var express         = require("express"),
         adminRoute      = require("./routes/admin");
 
 mongoose.connect("mongodb://localhost:27017/forum", {useNewUrlParser: true});
+/* mongoose.connect("mongodb://lars:lars12345@ds331735.mlab.com:31735/forum_lars", {useNewUrlParser: true}); */
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -60,3 +61,7 @@ app.use(adminRoute);
 app.listen(3000, function(){
     console.log("Forum app startet");
 });
+
+/* app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("Forum app startet");
+}); */
