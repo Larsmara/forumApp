@@ -1,36 +1,49 @@
-.chatContainer{
-    margin-top: 50px;
-    overflow: hidden;
-    height: auto;
-    padding: 5px;
+.row-chat{
+    height: 85vh;
+    overflow-y: scroll;
 }
 
-
-.bottom {
-    bottom:0;
-    position:fixed;
-    z-index:150;
-    height: 45px;
+.chatInput{
+    width: 100%;
+    margin: 0;
+    margin-top: 2%;
 }
 
-.left{
-    float: none;
-    width: auto;
-    overflow: hidden;
-    height: 700px;
-    border: 3px solid purple;
+.chatSend{
+    width: 100%;
+    margin: 0;
+    margin-top: 6%;
 }
 
-.right {
-    width: 250px;
-    float: right;
-    background: #aafed6;
-    height: 700px;
-    border: 1px solid black;
+.chatDiv{
+    overflow-y: scroll;
 }
 
-@media only screen and (max-width: 768px) {
-    .right{
-        display: none;
-    }
+.card-body{
+    padding: 0;
+    padding-left: 5px;
 }
+
+.card-body > .card-text {
+    margin: 0;
+    padding: 0;
+}
+
+.card-img{
+    padding-top: 6px;
+    padding-right: 2px;
+}
+
+.card {
+    height: 60px;
+    background: white;
+}
+
+.card:nth-child(even) {
+    background: white;
+}
+
+.col-9{
+    background: lightblue;
+}
+

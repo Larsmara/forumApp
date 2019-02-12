@@ -1,14 +1,23 @@
 <% include ../partials/header %>
 
-<div class="postsContainer">
-    <h1>Posts - <span><a href="/posts/new">Add new Post</a></span></h1>
-    <!-- LIST ALL POSTS -->
-    <ul>
+    <div class="postsContainer">
+        <h1>Posts - <span><a href="/posts/new">Add new Post</a></span></h1>
+        <p>Number of posts: <%= posts.length %></p>
+    </div>
+
+
+    <div class="list-group">
         <% posts.forEach(function(posts){ %>
-            <li> <a href="/posts/<%= posts._id %>"><%= posts.title %></a> - <%= posts.author.username %> - <%= moment(posts.createdAt).fromNow() %></li>
+            <a href="/posts/<%= posts._id %>" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><%= posts.title %></h5>
+                <small class="text-muted"><%= moment(posts.createdAt).fromNow() %></small>
+                </div>
+                <p class="mb-1"><%= posts.description %></p>
+                <small class="text-muted"><%= posts.author.name %></small>
+            </a>
         <% }) %>
-    </ul>
-    <p>Number of posts: <%= posts.length %></p>
-</div>
+    </div>
+
 
 <% include ../partials/footer %>

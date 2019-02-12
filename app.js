@@ -3,6 +3,8 @@ var express         = require("express"),
     bodyParser      = require("body-parser"),
     mongoose        = require("mongoose"),
     passport        = require("passport"),
+    back            = require("express-back"),
+    session         = require("express-session"),
     localStrategy   = require("passport-local"),
     methodOverride  = require("method-override"),
     User            = require("./models/user");
@@ -20,6 +22,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+//app.use(back());
+
+/* app.set('trust proxy', '');
+app.use(session({
+    secret: 'Lars sitt forum',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true}
+})); */
 
 app.use(require("express-session")({
     secret: "Teste user management",

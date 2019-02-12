@@ -1,17 +1,25 @@
 <% include ../partials/header %>
 
-    <div class="postContainer">
-        <h1>New post</h1>
-        
-        <form action="/posts" method="POST">
-            <p><input type="text" name="title" placeholder="Title" required></p>
-            <p><input type="text" name="image" placeholder="Image URL"></p>
-            <p><input type="text" name="description" placeholder="Description" required></p>
-            <p><input type="submit" value="Submit"></p>
-        </form>
+    <h1>New post</h1>
+    
+    <form action="/posts" method="POST">
+        <div class="form-group">
+            <label for="titleInput">Title</label>
+            <input class="form-control" id="titleInput" aria-describedby="titleHelp" type="text" name="title" placeholder="Title" required>
+            <small id="titleInput" class="form-text text-muted">Title of your post</small>
+        </div>
+        <div class="form-group">
+            <label for="imageInput">Image</label>
+            <input class="form-control" id="imageInput" type="text" name="image" placeholder="Image URL">
+        </div>
+        <div class="form-group">
+            <label for="descInput">Content</label>
+            <input class="form-control" id="descInput" type="text" name="description" placeholder="Description" required>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+    
+    <a id="backBtn" class="btn btn-warning float-right" href="/posts">Back</a>
 
-        <a href="/posts">Back</a>
-
-    </div>
 
 <% include ../partials/footer %>

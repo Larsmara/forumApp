@@ -1,13 +1,11 @@
-.postsContainer{
-    margin-top: 60px;
-    text-align: center;
+.formDelete {
+    display: inline;
 }
 
-.postsContainer > ul {
-    list-style: none;
+.commentDelete{
+    display: inline;
 }
 
-.postContainer {
-    margin-top: 60px;
-    text-align: center;
+#backBtn{
+    display: inline;
 }

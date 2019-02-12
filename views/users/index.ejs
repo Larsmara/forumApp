@@ -1,40 +1,47 @@
 <% include ../partials/header %>
 
-<div class="aside">
+<div class="jumbotron">
     <h3>Logget inn som: <%= currentUser.username %></h3>
     <p>Navn: <%= currentUser.name %></p>
     <p>Ble medlem for: <%= moment(currentUser.createdAt).fromNow() %></p>
 </div>
 
-<div class="minSideContainer">
+<div class="row">
 
-    <div class="myPostsContainer">
+    <div class="col-md">
         <h1>My posts</h1>
-        
-        <% posts.forEach(function(posts){ %>
-        <% if( posts.author.id.equals(currentUser._id)) { %>
-        <div class="posts">
-             <a href="/posts/<%= posts._id %>"> <%= posts.title %> </a> 
-             <hr>
-             <p><%= posts.description %></p>
-             <p> <em><%= moment(posts.createdAt).fromNow() %></em> </p>
+        <div class="list-group">
+            <% posts.forEach(function(posts){ %>
+            <% if( posts.author.id.equals(currentUser._id)) { %>
+                <a href="/posts/<%= posts._id %>" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1"><%= posts.title %></h4>
+                    <small class="text-muted"><%= moment(posts.createdAt).fromNow() %></small>
+                    </div>
+                    <p class="mb-1"><%= posts.description %></p>
+                    <small class="text-muted"><%= posts.author.name %></small>
+                </a>
+            <% } %>
+            <% }) %>
         </div>
-        <% } %>
-        <% }) %>
     </div>
 
-    <div class="myCommentsContainer">
+    <div class="col-md">
         <h1>My comments</h1>
-        <% comments.forEach(function(comments){ %>
-            <% if(comments.author.id.equals(currentUser._id)){ %>
-                <div class="comments">
-                    <p id="commentText"><%= comments.text %></p>
-                    <hr>
-                    <!-- <p>in post: <%= comments.post %></p> -->
-                    <p><em> <%= moment(comments.createdAt).fromNow() %> </em></p>
-                </div>
-            <% } %>
-        <% }) %>
+        <div class="list-group">
+            <% comments.forEach(function(comments){ %>
+                <% if(comments.author.id.equals(currentUser._id)){ %>
+                    <a href="/posts/<%= comments._id %>" class="list-group-item list-group-item-action disabled">
+                        <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><%= comments._id %></h5>
+                        <small class="text-muted"><%= moment(comments.createdAt).fromNow() %></small>
+                        </div>
+                        <p class="mb-1"><%= comments.text %></p>
+                        <small class="text-muted"><%= comments.author.name %></small>
+                    </a>
+                <% } %>
+            <% }) %>
+        </div>
     </div>
 
 </div>

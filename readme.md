@@ -13,11 +13,11 @@
     [X] - Over bruker sin posts
     [X] - Over bruker sine kommentarer
     [] - Antall posts
-[]  -   Style sidene 
+[X]  -   Style sidene 
 []  -   Admin Login
 []  -   Verifisering av admin
 []  -   Gi admin tilgang til å slette / redigere posts/kommentarer
-[]  -   Lage et chat vindu
+[X]  -   Lage et chat vindu
 []  -   Vise oversikt over brukere i chatten
 []  -   
 []

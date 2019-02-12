@@ -1,18 +1,53 @@
 <% include ../partials/header %>
 
-<div class="chatContainer">
-    <h1>Welcome to the chat room!</h1>
-    <div class="right">
-        right content
+    <div class="row row-chat overflow-hidden">
+        <div class="col-9 flex-column-reverse border-bottom" id="chatWindow" style="height: 85vh; overflow: auto; overflow-y: scroll;">
+            <% chat.forEach(function(chat){ %>
+                <div class="card mb-2" style="max-width: 100%;">
+                    <div class="row no-gutters">
+                        <div class="col-md-1">
+                        <img src="https://bit.ly/2yVxg6i" class="card-img" alt="..." style="justify-content: center;">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <p class="card-text"> <%= chat.text %> </p>
+                            <p class="card-text"><small class="text-muted"><%= moment(chat.createdAt).fromNow() %></small></p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div class="col-3 border-bottom border-left">
+            <% users.forEach(function(users){ %>
+                <a href="<%= users._id %>"><%= users.name %></a><br>
+            <% }) %>
+        </div>
     </div>
+    
+    <form action="/chat" method="POST">
+        <div class="form-group row">
+            <div class="col-9">
+                <input type="text" class="form-control chatInput" autocomplete="off" name="chatMes" required>
+            </div>
+            <div class="col-3">
+                <input type="submit" value="Send" class="btn btn-primary chatSend" onclick="updateScroll()">
+            </div>
+        </div>
+    </form>
 
-    <div class="left">
-        left content
-    </div>
-
-    <div class="bottom">
-        <input type="text">
-    </div>
-</div>
+    <script type='text/javascript'>
+        function updateScroll(){
+            var element = document.getElementById("chatWindow");
+            element.scrollTop = element.scrollHeight;
+        }
+    </script>
+        
+    <!-- <script> 
+        function timedRefresh(timeoutPeriod) {
+            setTimeout("location.reload(true);",timeoutPeriod);
+        }
+        window.onload = timedRefresh(5000);
+    </script> -->
 
 <% include ../partials/footer %>

@@ -1,10 +1,10 @@
 var express     = require("express"),
     router      = express.Router(),
     passport    = require("passport"),
+    back        = require("express-back"),
     Post        = require("../models/posts"),
     Comment    = require("../models/comment"),
     User        = require("../models/user");
-
 
 
 
@@ -42,7 +42,7 @@ router.get("/login", function(req,res){
 
 // LOGIN LOGIC
 router.post("/login", passport.authenticate("local",{
-    successRedirect: "/posts",
+    successRedirect: "/",
     failureRedirect: "/login"
 }), function(req,res){});
 

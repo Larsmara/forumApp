@@ -1,15 +1,22 @@
 <% include ../partials/header %>
 
-<div class="formContainer">
     <h1>Registrer deg</h1>
 
     <form action="/register" method="POST">
-        <p><input type="text" name="username" placeholder="E-mail"></p>
-        <p><input type="text" name="name" placeholder="Full name"></p>
-        <p><input type="password" name="password" placeholder="Password"></p>
-        <p><input type="submit" value="Register"></p>
+        <div class="form-group">
+            <label for="emailInput">Email</label>
+            <input class="form-control" type="text" name="username" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="emailInput">Full name</label>
+            <input class="form-control" type="text" name="name" placeholder="Full name">
+        </div>
+        <div class="form-group">
+            <label for="emailInput">password</label>
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+            <input class="form-control btn btn-primary" type="submit" value="Register">
     </form>
 
-</div>
 
 <% include ../partials/footer %>
