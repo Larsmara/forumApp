@@ -1,15 +1,33 @@
 <% include ../partials/header %>
 
-    <div class="container-chat">
-
+<div class="container-fluid ">
+    <div class="row overflow-hidden">
+        <div class="col-10 chat border">     
+            <% chat.forEach(function(chat){ %>
+                <p></small><%= moment(chat.createdAt).fromNow() %></small>: <%= chat.text %> </p>                         
+            <% }); %>
+        </div>
+        <div class="col-2 users">
+            <% users.forEach(function(users){ %>
+                <p><%= users.name %></p>
+            <% }) %>
+        </div>
     </div>
 
-    <div class="container-users">
-
+    <div class="row">
+        <div class="col-12 ">
+            <form action="/chat" method="POST">
+                <div class="form-group row">
+                    <div class="col-9">
+                        <input type="text" class="form-control chatInput" autocomplete="off" name="chatMes" required>
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="Send" class="btn btn-primary chatSend" onclick="updateScroll()">
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-
-    <div class="container-msg">
-        
-    </div>
+</div>
 
 <% include ../partials/footer %>

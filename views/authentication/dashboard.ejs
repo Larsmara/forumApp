@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading"> <%= currentUser.name %> </div>
+        <div class="list-group list-group-flush">
+          <a href="/admin/users" class="list-group-item list-group-item-action bg-light">Users</a>
+          <a href="/admin/posts" class="list-group-item list-group-item-action bg-light">Posts</a>
+        </div>
+    </div>
+      <!-- /#sidebar-wrapper -->
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>Welcome to the dashboard!</h1>
+        </div>
+        <div class="row" id="dash">
+            <div class="col-xs-12 col-lg-6 border">
+                <h2>Number of users</h2>
+                <p> <%= user.length %> </p>
+                
+            </div>
+            <div class="col-xs-12 col-lg-6 border">
+                <h2>Number of posts</h2>
+                <p><%= post.length %></p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

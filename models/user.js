@@ -7,7 +7,8 @@ var UserSchema = new mongoose.Schema({
     password: String,
     name: String,
     avatar: String,
-    createdAt: {type: Date, default: Date.now}
+    createdAt: {type: Date, default: Date.now},
+    isAdmin: {type: Boolean, default: false}
 });
 
 UserSchema.plugin(passportLocalMongoose);

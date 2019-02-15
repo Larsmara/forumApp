@@ -1,16 +1,14 @@
-.contaier-chat{
-    display: flex;
+.chat{
+    height: 80vh;
+    overflow: scroll;
 }
 
-.container-users{
-    display: flex;
+.chat::after{
+    content: "";
+    clear: both;
+    display: table;
 }
 
-.container-msg{
-    display: flex;
-}
-
-.container-chat div, .container-users div, .container-msg div {
-    border: 1px #ccc solid;
-    padding: 10px;
+.users{
+    overflow: scroll;
 }

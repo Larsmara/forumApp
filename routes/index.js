@@ -54,6 +54,9 @@ router.get("/register", function(req,res){
 // REGISTER LOGIC
 router.post("/register", function(req,res){
     var newUser = new User({username: req.body.username, name: req.body.name, createdAt: Date.now()});
+    if(req.body.adminCode === "lars") {
+        newUser.isAdmin = true;
+      }
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);

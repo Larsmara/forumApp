@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading"> <%= currentUser.name %> </div>
+        <div class="list-group list-group-flush">
+            <a href="/admin" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+            <a href="/admin/users" class="list-group-item list-group-item-action bg-light">Users</a>
+            <a href="/admin/posts" class="list-group-item list-group-item-action bg-light">Posts</a>
+        </div>
+    </div>
+      <!-- /#sidebar-wrapper -->
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>Users dashboard</h1>
+        </div>
+        <div class="row" id="dash">
+            <div class="col">
+                <% users.forEach(function(users){ %>
+                    <div class="">
+                        <p>Mail: <%= users.username %> - Name: <%= users.name %> - Admin: <%= users.isAdmin %> - 
+                            Joined: <%= moment(users.createdAt).fromNow() %>
+                            <span style="float: right;"><a href="#"><i class="far fa-trash-alt icon"></i></a></span>
+                            <span style="float: right;"><a href="#"><i class="far fa-edit icon"></i></a></span>
+                        </p>
+                        <hr>
+                    </div>
+                <% }) %>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

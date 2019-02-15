@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-
+<div class="container">
     <h1>Registrer deg</h1>
 
     <form action="/register" method="POST">
@@ -15,8 +15,12 @@
             <label for="emailInput">password</label>
             <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
+        <div class="form-group">
+            <label for="adminInput">Admin code</label>
+            <input class="form-control" type="password" name="adminCode" placeholder="admin code">
+        </div>
             <input class="form-control btn btn-primary" type="submit" value="Register">
     </form>
 
-
+</div>
 <% include ../partials/footer %>
