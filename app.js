@@ -1,6 +1,9 @@
 var express         = require("express"),
     app             = express(),
     bodyParser      = require("body-parser"),
+    firebase        = require("firebase"),
+    admin           = require("firebase-admin"),
+    serviceAccount  = require("./firebaseForum-key.json"),
     mongoose        = require("mongoose"),
     passport        = require("passport"),
     back            = require("express-back"),
@@ -16,6 +19,8 @@ var express         = require("express"),
         commentRoute    = require("./routes/comments"),
         adminRoute      = require("./routes/admin");
 
+        
+
 mongoose.connect("mongodb://localhost:27017/forum", {useNewUrlParser: true});
 /* mongoose.connect("mongodb://lars:lars12345@ds331735.mlab.com:31735/forum_lars", {useNewUrlParser: true}); */
 
@@ -25,13 +30,13 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 //app.use(back());
 
-/* app.set('trust proxy', '');
+app.set('trust proxy', '');
 app.use(session({
     secret: 'Lars sitt forum',
     resave: false,
     saveUninitialized: true,
     cookie: { secure: true}
-})); */
+}));
 
 app.use(require("express-session")({
     secret: "Teste user management",

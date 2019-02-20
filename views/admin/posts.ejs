@@ -20,7 +20,7 @@
                 <% posts.forEach(function(posts){ %>
                     <div class="">
                         <a href="/posts/<%= posts._id %>"><strong><%= posts.title %></strong></a>
-                        <p><%= posts.author.username %>
+                        <p><%= posts.author.username %> - <%= posts.comments.length %></p>
                         <span style="float: right;"><a href="#"><i class="far fa-trash-alt icon"></i></a></span>
                         <span style="float: right;"><a href="#"><i class="far fa-edit icon"></i></a></span>
                     </p>

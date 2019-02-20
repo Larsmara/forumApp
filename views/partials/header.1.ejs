@@ -42,21 +42,26 @@
             </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                <% if(currentUser && currentUser.isAdmin){ %>
                     <li class="nav-item">
                         <a href="/admin" class="nav-link">Dashboard</a>
                     </li>
+                <% } %>
+               <% if(!currentUser) { %>
                 <li class="nav-item">
                     <a class="nav-link right-nav" href="/login">Logg inn</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link right-nav" href="/register">Registrer deg</a>
                 </li>
+               <% } else { %>
                 <li class="nav-item">
                     <a class="nav-link right-nav" href="/users">Min side</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link right-nav" href="/logout">Logg ut</a>
                 </li>
+                <% } %>
             </ul>
         </div>
     </nav>

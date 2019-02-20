@@ -1,5 +1,6 @@
 var express     = require("express"),
     router      = express.Router(),
+    firebase    = require("firebase"),
     passport    = require("passport"),
     User        = require("../models/user"),
     Post        = require("../models/posts"),
@@ -18,12 +19,12 @@ router.get("/", function(req,res){
 });
 
 // NEW - SHOW FORM TO CREATE NEW POST
-router.get("/new", middleware.isLoggedIn,function(req,res){
+router.get("/new",function(req,res){
     res.render("posts/new", {title:'New post'});
 })
 
 // CREATE - ADD NEW POST TO DB
-router.post("/", middleware.isLoggedIn,function(req,res){
+router.post("/",function(req,res){
     var title = req.body.title,
         image = req.body.image,
         description = req.body.description;

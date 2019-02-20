@@ -1,6 +1,7 @@
 var express     = require("express"),
     router      = express.Router(),
     passport    = require("passport"),
+    firebase    = require("firebase"),
     back        = require("express-back"),
     Post        = require("../models/posts"),
     Comment    = require("../models/comment"),
@@ -10,6 +11,7 @@ var express     = require("express"),
 
 // ROOT ROUTE
 router.get("/",function(req,res){
+    console.log("HTTP Get Request");
     res.render("home", {title:'Homepage'});
 });
 

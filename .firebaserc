@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "fir-forum-18dbc",
+    "test": "fir-forum-18dbc"
+  }
+}
